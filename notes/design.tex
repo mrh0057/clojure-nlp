@@ -1,0 +1,73 @@
+%% LyX 1.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[oneside,english]{book}
+\usepackage[T1]{fontenc}
+\usepackage[latin1]{inputenc}
+\usepackage{geometry}
+\geometry{verbose,letterpaper,tmargin=1in,bmargin=1in,lmargin=1in,rmargin=1in,headheight=0.5in,headsep=0.3in,footskip=0.2in}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength\parskip{\smallskipamount}
+\setlength\parindent{0pt}
+
+\makeatletter
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\pagenumbering{roman}
+    \fancyfoot{}                            % Delete current footer settings
+\fancypagestyle{plain}{%
+  \fancyhf{}
+  \fancyfoot[R]{\thepage}
+  \renewcommand\headrulewidth{0pt}
+  \renewcommand\footrulewidth{0pt}
+}
+    \renewcommand{\chaptermark}[1]{         % Lower Case Chapter marker style
+      \markboth{\chaptername\ \thechapter.\ #1}{}} %
+    \renewcommand{\sectionmark}[1]{         % Lower case Section marker style
+      \markright{\thesection.\ #1}}         %
+    \fancyhead[LE,RO]{\bfseries\thepage}    % Page number (boldface) in left on even
+                                            % pages and right on odd pages
+    \fancyhead[RE]{\bfseries\leftmark}      % Chapter in the right on even pages
+    \fancyhead[LO]{\bfseries\rightmark}     % Section in the left on odd pages
+    \renewcommand{\headrulewidth}{0.3pt}    % Width of head rule
+    %%% Clear Header %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % Clear Header Style on the Last Empty Odd pages
+    \makeatletter
+    \def\cleardoublepage{\clearpage\if@twoside \ifodd\c@page\else%
+        \hbox{}%
+        \thispagestyle{empty}%              % Empty header styles
+        \newpage%
+        \if@twocolumn\hbox{}\newpage\fi\fi\fi}
+    \makeatother
+
+\usepackage{babel}
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\makeatother
+\begin{document}
+
+\title{Knowledge representation System for Understanding Data
+  Connection and theories.}
+\author{Matt Hoyt}
+\maketitle
+\tableofcontents{}
+
+\setcounter{page}{1}
+
+\pagenumbering{arabic}
+
+\chapter{Introduction}
+
+Idea is to build upon knowledge about how the brains is able to
+retrieve information and associate connection between images, smells,
+and words.  The goal is to develop a way of representing the data were
+you can associate words and phrase together.
+
+The idea is to make it to keep track of where the ideas confirm and
+develop a connection strength.
+
+\section{Using a Graph to Represent the Data}
+
+The idea is to chunk the information into an easy searchable index of
+words and phrase.  Words and phrase are connected together.
+
+\end{document}
