@@ -175,6 +175,7 @@ words - The words."
 (defn create-document-by-word-dataset [name term-weighting documents words]
   "Used to create a document b word dataset.
 
+name - The name to give the data set.
 term-weighting - A record that has the term weighint protocol implemented.
 documents - The processed documents.
 words - The map of total word counts."
@@ -186,7 +187,7 @@ words - The map of total word counts."
            documents documents]
       (if (empty? documents)
         (make-data-set-my-matrix name
-                                 words
+                                 (map #(str %) (range 0 (count words)))
                                  row-labels
                                  nil
                                  matrix)
@@ -197,8 +198,8 @@ words - The map of total word counts."
                                                     (calculate-weight term-weighting word counts))))]
           (do
             (reduce (fn [matrix word-count]
-                      (set-word-value (:value word-count)
-                                      (:times word-count))
+                      (set-word-value (first word-count)
+                                      (second word-count))
                       matrix) matrix (:counts (first documents)))
             (recur (inc i)
                    (rest documents))))))))

@@ -6,15 +6,15 @@
 
 (deftest create-log-entropy-test
   (let [document-word-counts (list
-                     (list (make-count-number "a" 2)
-                             (make-count-number "one" 1)
-                             (make-count-number "three" 3))
-                     (list (make-count-number "a" 2)
-                             (make-count-number "one" 1)
-                             (make-count-number "two" 2))
-                     (list (make-count-number "a" 2)
-                             (make-count-number "one" 1)
-                             (make-count-number "two" 2)))
+                              (list (make-count-number "a" 2)
+                                    (make-count-number "one" 1)
+                                    (make-count-number "three" 3))
+                              (list (make-count-number "a" 2)
+                                    (make-count-number "one" 1)
+                                    (make-count-number "two" 2))
+                              (list (make-count-number "a" 2)
+                                    (make-count-number "one" 1)
+                                    (make-count-number "two" 2)))
         word-counts {"a" 6
                      "one" 3
                      "two" 4

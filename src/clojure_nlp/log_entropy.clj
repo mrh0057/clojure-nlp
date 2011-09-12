@@ -19,6 +19,8 @@
 (defn- calculate-entropy [documents word document-count documents-word-count-total]
   (let [total-count (get documents-word-count-total word)
         log2m (log2 document-count)]
+    (if (= total-count 0)
+      (println "My word is: " word))
     (loop [documents documents
            updated '()
            e 0]

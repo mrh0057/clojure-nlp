@@ -25,3 +25,8 @@
   FilterWords
   (filter-not-letters [this]
     (map #(filter-not-letters %) this)))
+
+(extend-type nil
+  FilterWords
+  (filter-not-letters [this]
+    nil))

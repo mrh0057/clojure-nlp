@@ -93,19 +93,19 @@
   (let [term-weighting (new TermWeightingTest 3)
         documents (list
                    (make-processed-document "doc1"
-                                            (list (make-count-number "a" 2)
-                                                  (make-count-number "one" 1)
-                                                  (make-count-number "three" 3))
+                                            (hash-map  "a" 2
+                                                       "one" 1
+                                                       "three" 3)
                                             6)
                      (make-processed-document "doc2"
-                                              (list (make-count-number "a" 5)
-                                                    (make-count-number "one" 1)
-                                                    (make-count-number "two" 2))
+                                              (hash-map "a" 5
+                                                        "one" 1
+                                                        "two" 2)
                                               8)
                      (make-processed-document "doc3"
-                                              (list (make-count-number "a" 5)
-                                                    (make-count-number "one" 1)
-                                                    (make-count-number "two" 2))
+                                              (hash-map  "a" 5
+                                                         "one" 1
+                                                         "two" 2)
                                               8))
         word-map {"a" 4
                   "one" 3
@@ -121,4 +121,4 @@
     (is (= (data-func/get-value data-set 1 2) 1))
     (is (= (data-func/get-value data-set 3 2) 2))
     (is (= (:row-labels data-set) ["doc1" "doc2" "doc3"]))
-    (is (= (:attributes data-set) ["a" "one" "three" "two"]))))
+    (is (= (:attributes data-set) ["0" "1" "2" "3"]))))
