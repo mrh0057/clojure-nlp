@@ -93,10 +93,12 @@ return a DocumentProcessed record"))
                 current
                 lowest))) (:value (first (first documents))) (rest documents)))
 
-(defn- get-document-counts-for-word [word documents]
+(defn- get-document-counts-for-word 
   "Used to get word counts for a word.
 
-returns First is the word count second is the updated list of documents"
+*returns*
+ First is the word count second is the updated list of documents"
+  [word documents]
   (loop [documents documents
          updated '()
          number 0]
@@ -119,9 +121,10 @@ returns First is the word count second is the updated list of documents"
 (defn count-documents-words 
   "Used to get the word counts of documents
 
-documents - The documents word counts.
-
-returns a map of word counts."
+*documents*
+  The documents word counts. <br />
+*returns*
+ a map of word counts."
   [documents]
   (loop [documents documents
          word (find-lowest-word documents)
@@ -133,8 +136,9 @@ returns a map of word counts."
                (find-lowest-word (second word-counts))
                (assoc word-counts-map word (first word-counts)))))))
 
-(defn count-document-word [document]
+(defn count-document-word
   "Used to get the total count for words in a document."
+  [document]
   (reduce (fn [number word]
             (+ number (:times word))) 0 document))
 
@@ -142,8 +146,9 @@ returns a map of word counts."
   (reduce (fn [map word]
             (assoc map (:value word) (:times word))) {} document))
 
-(defn total-words [word-counts]
+(defn total-words 
   "Calculates the total word count for the document."
+  [word-counts]
   (apply + (vals word-counts)))
 
 (extend-type Document
@@ -154,19 +159,22 @@ returns a map of word counts."
                                (convert-count-value-to-map word-counts)
                                (count-document-word word-counts)))))
 
-(defn process-documents [document-col]
+(defn process-documents 
   "Used to process a collection of documents.
 
-document-col - The collection of documents.
-
-returns a list of ProcessedDocument"
+*document-col*
+  The collection of documents. <br />
+*returns*
+ a list of ProcessedDocument"
+  [document-col]
   (map #(process %) document-col))
 
-(defn- build-word-positions [words]
+(defn- build-word-positions 
   "Used to build the words to be put into a matrix.
 
 *words*
   The words."
+  [words]
   (second
    (reduce (fn [data word]
              (list (inc (first data))

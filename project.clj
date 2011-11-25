@@ -8,5 +8,6 @@
                  [clojure-opennlp "0.1.5"]]
   :dev-dependencies [[swank-clojure "1.3.1"]
                      [lein-midje "1.0.3"]
+                     [lein-marginalia "0.6.0"]
                      [midje "1.1.1" :exclusions [org.clojure/clojure
                                              org.clojure.contrib/core]]])

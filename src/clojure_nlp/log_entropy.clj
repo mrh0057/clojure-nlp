@@ -37,7 +37,7 @@
                    (cons (first documents) updated)
                    e)))))))
 
-(defn create-log-entropy [documents-word-counts documents-word-count-total]
+(defn create-log-entropy 
   "Used to calculate the value of g for each word.
 
 *documents-word-counts*
@@ -46,6 +46,7 @@
  All of the words and the number of times they appear in all of the documents.  Expected to be a map. <br />
 *returns*
  A map of g values for each word."
+  [documents-word-counts documents-word-count-total]
   (let [document-count (count documents-word-counts)]
     (loop [documents documents-word-counts
            g-map {}]
