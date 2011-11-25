@@ -5,9 +5,10 @@
   (stem-snowball [this]
     "Used to stem a sequence of words that are in the seq.
   
-  seq - The sequence to stem.
-  
-  return - A list of the stemmed words."))
+*seq*
+  The sequence to stem.<br />
+*return*
+  A list of the stemmed words."))
 
 (extend-type java.lang.String
   Stemmable

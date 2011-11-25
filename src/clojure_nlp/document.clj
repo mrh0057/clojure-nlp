@@ -165,7 +165,8 @@ returns a list of ProcessedDocument"
 (defn- build-word-positions [words]
   "Used to build the words to be put into a matrix.
 
-words - The words."
+*words*
+  The words."
   (second
    (reduce (fn [data word]
              (list (inc (first data))
@@ -175,10 +176,14 @@ words - The words."
 (defn create-document-by-word-dataset
     "Used to create a document b word dataset.
 
-name - The name to give the data set.
-term-weighting - A record that has the term weighint protocol implemented.
-documents - The processed documents.
-words - The map of total word counts.  The words are converted into numbers.  Words are in ascending order."
+*name*
+  The name to give the data set. <br />
+*term-weighting* 
+  A record that has the term weighint protocol implemented. <br />
+*documents* 
+  The processed documents. <br />
+*words*
+  The map of total word counts.  The words are converted into numbers.  Words are in ascending order."
     [name term-weighting documents words]
   (let [matrix (make-dense-double-matrix (count documents) (count words))
         words (sort (keys words))
