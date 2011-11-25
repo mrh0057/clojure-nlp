@@ -3,6 +3,14 @@
         opennlp.treebank
         [clojure.contrib.io :only [file-str]]))
 
+(def get-sentences)
+
+(def tokenize)
+
+(def pos-tag)
+
+(def chunker)
+
 (defn setup-models ([] (setup-models "models/"))
   ([base-dir]
      (def get-sentences (make-sentence-detector (file-str (str base-dir "en-sent.bin"))))

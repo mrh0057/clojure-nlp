@@ -170,15 +170,16 @@ words - The words."
    (reduce (fn [data word]
              (list (inc (first data))
                    (assoc (second data) word (first data))))
-           '(0 {}) (sort words))) )
+           '(0 {}) (sort words))))
 
-(defn create-document-by-word-dataset [name term-weighting documents words]
-  "Used to create a document b word dataset.
+(defn create-document-by-word-dataset
+    "Used to create a document b word dataset.
 
 name - The name to give the data set.
 term-weighting - A record that has the term weighint protocol implemented.
 documents - The processed documents.
-words - The map of total word counts."
+words - The map of total word counts.  The words are converted into numbers.  Words are in ascending order."
+    [name term-weighting documents words]
   (let [matrix (make-dense-double-matrix (count documents) (count words))
         words (sort (keys words))
         word-positions (build-word-positions words)
